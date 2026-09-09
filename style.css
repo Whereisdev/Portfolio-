@@ -982,6 +982,9 @@ html, body {
 .icon-prepabac { background: linear-gradient(135deg, #43D9AD 0%, #1e88e5 100%); }
 .icon-lire { background: linear-gradient(135deg, #4D5BCE 0%, #816797 100%); }
 .icon-portfolio { background: linear-gradient(135deg, #E99287 0%, #FEA55F 100%); }
+.icon-sushimebko { background: linear-gradient(135deg, #FF6B6B 0%, #FEA55F 100%); }
+.icon-bioarchi { background: linear-gradient(135deg, #43D9AD 0%, #10B981 100%); }
+.icon-couverture { background: linear-gradient(135deg, #4D5BCE 0%, #38BDF8 100%); }
 
 .project-heading {
   font-size: 1.35rem;
@@ -1001,7 +1004,20 @@ html, body {
   font-size: 0.95rem;
   color: var(--text-muted);
   line-height: 1.65;
-  margin-bottom: 22px;
+  margin-bottom: 14px;
+}
+
+.project-focus-tag {
+  font-family: var(--font-code);
+  font-size: 0.82rem;
+  color: var(--text-comment);
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+
+.project-focus-tag strong {
+  color: var(--accent-orange);
+  font-weight: 600;
 }
 
 .project-tech-pills {
@@ -1012,13 +1028,30 @@ html, body {
 }
 
 .tech-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   font-family: var(--font-code);
   font-size: 0.78rem;
   color: var(--accent-cyan);
   background-color: rgba(67, 217, 173, 0.08);
   border: 1px solid rgba(67, 217, 173, 0.25);
-  padding: 4px 12px;
+  padding: 5px 12px;
   border-radius: 20px;
+  transition: all 0.2s ease;
+}
+
+.tech-pill:hover {
+  background-color: rgba(67, 217, 173, 0.14);
+  border-color: rgba(67, 217, 173, 0.45);
+  transform: translateY(-1px);
+}
+
+.tech-pill svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  display: inline-block;
 }
 
 .project-card-actions {
