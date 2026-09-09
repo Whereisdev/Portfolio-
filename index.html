@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Ibrahim Boré — Junior software developer from Mali. I build products across frontend and backend. Serious about engineering, looking for a strong team to grow with.">
-  <title>Ibrahim Boré · Software Developer</title>
+  <meta property="og:title" content="Ibrahim Boré — Software Developer | Frontend & Full-Stack">
+  <meta property="og:description" content="Ibrahim Boré — Junior software developer from Mali. I build products across frontend and backend. Serious about engineering, looking for a strong team to grow with.">
+  <meta property="og:type" content="website">
+  <title>Ibrahim Boré — Software Developer | Frontend & Full-Stack</title>
   
-  <!-- Polices Google : Fira Code pour le style IDE / Code, et Inter / Space Grotesk pour l'élégance -->
+  <!-- Polices Google : Fira Code pour le style IDE / Code, et Inter pour la typographie -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,8 +24,8 @@
     <!-- Barre de navigation supérieure (Tabs) -->
     <header class="ide-header">
       <div class="header-brand">
-        <span class="brand-title">ibrahim-bore</span>
-        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Ouvrir le menu">
+        <span class="brand-title" data-i18n="nav.brand">ibrahim-bore</span>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" data-i18n-aria="nav.mobileMenuAria">
           <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -33,19 +36,26 @@
 
       <nav class="nav-tabs" id="navTabs">
         <button class="tab-btn active" data-tab="hello" id="tab-hello">
-          <span class="tab-label">_hello</span>
+          <span class="tab-label" data-i18n="nav.tabHello">_hello</span>
         </button>
         <button class="tab-btn" data-tab="about" id="tab-about">
-          <span class="tab-label">_about-me</span>
+          <span class="tab-label" data-i18n="nav.tabAbout">_about-me</span>
         </button>
         <button class="tab-btn" data-tab="projects" id="tab-projects">
-          <span class="tab-label">_projects</span>
+          <span class="tab-label" data-i18n="nav.tabProjects">_projects</span>
         </button>
       </nav>
 
       <div class="header-right">
+        <!-- Language Switcher (EN | FR) -->
+        <div class="lang-switcher" role="group" aria-label="Language selection" data-i18n-aria="nav.langSwitchAria">
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="true" aria-label="English">EN</button>
+          <span class="lang-divider">/</span>
+          <button type="button" class="lang-btn" data-lang="fr" aria-pressed="false" aria-label="Français">FR</button>
+        </div>
+
         <button class="tab-btn contact-tab-btn" data-tab="contact" id="tab-contact">
-          <span class="tab-label">_contact-me</span>
+          <span class="tab-label" data-i18n="nav.tabContact">_contact-me</span>
         </button>
       </div>
     </header>
@@ -62,14 +72,18 @@
 
         <div class="hero-container">
           <div class="hero-content">
-            <p class="hero-subtitle-code">IBRAHIM BORÉ · SOFTWARE DEVELOPER</p>
-            <h1 class="hero-name">I build products,<br>not just interfaces.</h1>
-            <p class="hero-role"><span class="prompt-arrow">&gt;</span> Junior developer with a strong bias toward building, learning and solving real problems. <span class="role-badge">Open to opportunities · Bamako, Mali · Remote</span></p>
+            <p class="hero-subtitle-code" data-i18n="hero.eyebrow">IBRAHIM BORÉ · SOFTWARE DEVELOPER</p>
+            <h1 class="hero-name" data-i18n-html="hero.headline">I build products,<br>not just interfaces.</h1>
+            <p class="hero-role">
+              <span class="prompt-arrow">&gt;</span> 
+              <span data-i18n="hero.roleText">Junior developer with a strong bias toward building, learning and solving real problems.</span> 
+              <span class="role-badge" data-i18n="hero.badge">Open to opportunities · Bamako, Mali · Remote</span>
+            </p>
 
             <div class="hero-code-block">
-              <p class="code-comment">// I work across frontend and backend.</p>
-              <p class="code-comment">// Looking for an environment where I can contribute,</p>
-              <p class="code-comment">// learn from experienced engineers and grow through real-world engineering.</p>
+              <p class="code-comment" data-i18n="hero.comment1">// I work across frontend and backend.</p>
+              <p class="code-comment" data-i18n="hero.comment2">// Looking for an environment where I can contribute,</p>
+              <p class="code-comment" data-i18n="hero.comment3">// learn from experienced engineers and grow through real-world engineering.</p>
               <div class="code-line">
                 <span class="syntax-keyword">const</span> <span class="syntax-variable">github</span> = <a href="https://github.com/Whereisdev" target="_blank" rel="noopener noreferrer" class="syntax-string">"github.com/Whereisdev"</a>;
               </div>
@@ -83,11 +97,11 @@
 
             <div class="hero-actions">
               <button class="btn-ide btn-primary" onclick="switchTab('projects')">
-                <span>View my work</span>
+                <span data-i18n="hero.btnWork">View my work</span>
                 <span class="btn-arrow">→</span>
               </button>
               <button class="btn-ide btn-secondary" onclick="switchTab('contact')">
-                <span>Let's talk</span>
+                <span data-i18n="hero.btnTalk">Let's talk</span>
               </button>
             </div>
           </div>
@@ -95,7 +109,7 @@
           <div class="hero-avatar-wrapper">
             <div class="avatar-halo"></div>
             <div class="avatar-circle">
-              <img src="avatar1.png" alt="Avatar d'Ibrahim Boré" class="avatar-img" width="340" height="340">
+              <img src="avatar1.png" alt="Avatar Ibrahim Boré" class="avatar-img" width="340" height="340">
             </div>
           </div>
         </div>
@@ -111,13 +125,13 @@
           <!-- Explorer Sidebar -->
           <aside class="sidebar" id="aboutSidebar">
             <div class="sidebar-activity">
-              <div class="activity-icon active" title="Explorer">
+              <div class="activity-icon active" title="Explorer" data-i18n-title="about.sidebarActivityExplorer">
                 <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
                   <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
                   <polyline points="13 2 13 9 20 9"></polyline>
                 </svg>
               </div>
-              <div class="activity-icon" title="Contact" onclick="switchTab('contact')">
+              <div class="activity-icon" title="Contact" data-i18n-title="about.sidebarActivityContact" onclick="switchTab('contact')">
                 <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                   <polyline points="22,6 12,13 2,6"></polyline>
@@ -130,31 +144,39 @@
               <div class="tree-section open">
                 <div class="tree-header" onclick="toggleTreeSection(this)">
                   <span class="tree-arrow">▼</span>
-                  <span class="tree-title">personal-info</span>
+                  <span class="tree-title" data-i18n="about.treePersonalInfo">personal-info</span>
                 </div>
                 <div class="tree-list">
-                  <div class="tree-item active" onclick="selectAboutTab('bio')">
-                    <span class="folder-icon">📁</span>
-                    <span class="item-name">bio</span>
+                  <div class="tree-item active" data-file="personal-info" onclick="selectAboutTab('bio')">
+                    <span class="folder-icon">📄</span>
+                    <span class="item-name" data-i18n="about.treeBio">bio</span>
                   </div>
-                  <div class="tree-item" onclick="selectAboutTab('skills')">
+                  <div class="tree-item" data-file="looking-for" onclick="selectAboutTab('looking-for')">
+                    <span class="folder-icon">📄</span>
+                    <span class="item-name" data-i18n="about.treeLookingFor">what-i-look-for</span>
+                  </div>
+                  <div class="tree-item" data-file="how-i-work" onclick="selectAboutTab('how-i-work')">
+                    <span class="folder-icon">📄</span>
+                    <span class="item-name" data-i18n="about.treeHowIWork">how-i-work</span>
+                  </div>
+                  <div class="tree-item" data-action="skills" onclick="selectAboutTab('skills')">
                     <span class="folder-icon">📁</span>
-                    <span class="item-name">skills</span>
+                    <span class="item-name" data-i18n="about.treeSkills">skills</span>
                   </div>
                   <div class="tree-subfolder open">
                     <div class="tree-header sub" onclick="toggleSubfolder(this)">
                       <span class="tree-arrow">▼</span>
                       <span class="folder-icon">📁</span>
-                      <span class="item-name">education</span>
+                      <span class="item-name" data-i18n="about.treeEducation">education</span>
                     </div>
                     <div class="tree-sublist">
                       <div class="tree-file">
                         <span class="file-icon">🎓</span>
-                        <span>Autodidacte & Dev Web</span>
+                        <span data-i18n="about.eduAutodidact">Self-taught & Web Dev</span>
                       </div>
                       <div class="tree-file">
                         <span class="file-icon">🎓</span>
-                        <span>Baccalauréat & Projets</span>
+                        <span data-i18n="about.eduBac">Baccalaureate & Projects</span>
                       </div>
                     </div>
                   </div>
@@ -165,7 +187,7 @@
               <div class="tree-section open">
                 <div class="tree-header" onclick="toggleTreeSection(this)">
                   <span class="tree-arrow">▼</span>
-                  <span class="tree-title">contacts</span>
+                  <span class="tree-title" data-i18n="about.treeContacts">contacts</span>
                 </div>
                 <div class="tree-list">
                   <a href="mailto:ibore21@gmail.com" class="tree-contact-link">
@@ -176,7 +198,7 @@
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
                     <span>Whereisdev</span>
                   </a>
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="tree-contact-link">
+                  <a href="https://www.linkedin.com/in/ibrahim-bore-3867b8328" target="_blank" rel="noopener noreferrer" class="tree-contact-link">
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                     <span>Ibrahim Boré</span>
                   </a>
@@ -186,67 +208,44 @@
               <!-- Mini avatar de pause -->
               <div class="sidebar-avatar-card">
                 <img src="avatar-skills.png" alt="Avatar focus" class="sidebar-avatar-img">
-                <p class="sidebar-avatar-caption">// Focus & Build</p>
+                <p class="sidebar-avatar-caption" data-i18n="about.sidebarAvatarCaption">// Focus & Build</p>
               </div>
             </div>
           </aside>
 
-          <!-- Middle Code Editor (Personal Info) -->
+          <!-- Middle Code Editor (Personal Info / Looking For / How I Work) -->
           <div class="editor-pane">
             <div class="editor-tabs">
-              <div class="editor-tab active">
-                <span class="file-name">personal-info.js</span>
-                <span class="tab-close">✕</span>
+              <div class="editor-tab-item active" data-file="personal-info">
+                <span class="file-name" id="activeAboutFileName">personal-info.js</span>
+              </div>
+              <div class="editor-tab-item" data-file="looking-for">
+                <span class="file-name" data-i18n="about.tabLookingForName">what-i-look-for.js</span>
+              </div>
+              <div class="editor-tab-item" data-file="how-i-work">
+                <span class="file-name" data-i18n="about.tabHowIWorkName">how-i-work.js</span>
               </div>
             </div>
 
             <div class="code-editor-content">
               <div class="line-numbers" id="aboutLineNumbers">
-                <!-- Généré en JS pour correspondre aux lignes -->
+                <!-- Généré dynamiquement en JS -->
               </div>
-              <div class="code-text">
-                <p class="code-doc"><span class="doc-star">/**</span></p>
-                <p class="code-doc"><span class="doc-star">&nbsp;*</span> <span class="syntax-keyword">@name</span> Ibrahim Boré</p>
-                <p class="code-doc"><span class="doc-star">&nbsp;*</span> <span class="syntax-keyword">@role</span> Software Developer · Junior</p>
-                <p class="code-doc"><span class="doc-star">&nbsp;*</span> <span class="syntax-keyword">@location</span> Bamako, Mali · Remote</p>
-                <p class="code-doc"><span class="doc-star">&nbsp;*</span></p>
-                <p class="code-doc"><span class="doc-star">&nbsp;*</span> I'm Ibrahim Boré, a software developer from Mali</p>
-                <p class="code-doc"><span class="doc-star">&nbsp;*</span> at the beginning of my professional career.</p>
-                <p class="code-doc"><span class="doc-star">&nbsp;*</span></p>
-                <p class="code-doc"><span class="doc-star">&nbsp;*</span> I started with the fundamentals of web development</p>
-                <p class="code-doc"><span class="doc-star">&nbsp;*</span> and gradually moved toward building complete applications</p>
-                <p class="code-doc"><span class="doc-star">&nbsp;*</span> — from interfaces to APIs, databases and backend logic.</p>
-                <p class="code-doc"><span class="doc-star">&nbsp;*</span></p>
-                <p class="code-doc"><span class="doc-star">&nbsp;*</span> What I enjoy most is taking an idea, understanding the</p>
-                <p class="code-doc"><span class="doc-star">&nbsp;*</span> problem behind it, and building something people can use.</p>
-                <p class="code-doc"><span class="doc-star">&nbsp;*</span></p>
-                <p class="code-doc"><span class="doc-star">&nbsp;*</span> I'm still growing technically, and I'm honest about that.</p>
-                <p class="code-doc"><span class="doc-star">&nbsp;*</span> I'm looking for an environment where I can work alongside</p>
-                <p class="code-doc"><span class="doc-star">&nbsp;*</span> experienced developers, contribute to real products,</p>
-                <p class="code-doc"><span class="doc-star">&nbsp;*</span> and become the kind of engineer people can trust.</p>
-                <p class="code-doc"><span class="doc-star">&nbsp;*/</span></p>
-                
-                <div class="code-interactive-block">
-                  <p><span class="syntax-keyword">export const</span> <span class="syntax-variable">devProfile</span> = {</p>
-                  <p class="indent-1"><span class="syntax-property">status</span>: <span class="syntax-string">"Open to opportunities"</span>,</p>
-                  <p class="indent-1"><span class="syntax-property">level</span>: <span class="syntax-string">"Junior · Early career"</span>,</p>
-                  <p class="indent-1"><span class="syntax-property">mainStack</span>: [<span class="syntax-string">"HTML"</span>, <span class="syntax-string">"CSS"</span>, <span class="syntax-string">"JavaScript"</span>, <span class="syntax-string">"React"</span>],</p>
-                  <p class="indent-1"><span class="syntax-property">growing</span>: [<span class="syntax-string">"Node.js"</span>, <span class="syntax-string">"Express"</span>, <span class="syntax-string">"PostgreSQL"</span>, <span class="syntax-string">"Supabase"</span>]</p>
-                  <p>};</p>
-                </div>
+              <div class="code-text" id="aboutEditorCode">
+                <!-- Rendu dynamiquement en fonction du fichier et de la langue -->
               </div>
             </div>
           </div>
 
-          <!-- Right Column (Relevant Skills) -->
+          <!-- Right Column (Skills & Stack) -->
           <div class="skills-pane">
-            <h3 class="skills-pane-title">// Skills &amp; Stack</h3>
+            <h3 class="skills-pane-title" data-i18n="skills.title">// Skills &amp; Stack</h3>
 
             <!-- Frontend Card -->
             <div class="skills-category-card">
               <div class="category-header">
-                <span class="category-tag">@frontend</span>
-                <span class="category-details">HTML · CSS · JS · React</span>
+                <span class="category-tag" data-i18n="skills.frontendTag">@frontend</span>
+                <span class="category-details" data-i18n="skills.frontendDetails">HTML · CSS · JS · React · Next.js</span>
               </div>
               <div class="skills-grid">
                 <div class="skill-badge">
@@ -255,7 +254,7 @@
                   </div>
                   <div class="badge-info">
                     <span class="badge-name">HTML5</span>
-                    <span class="badge-level">Comfortable</span>
+                    <span class="badge-level" data-i18n="skills.levelComfortable">Comfortable</span>
                   </div>
                 </div>
 
@@ -265,7 +264,7 @@
                   </div>
                   <div class="badge-info">
                     <span class="badge-name">CSS3</span>
-                    <span class="badge-level">Comfortable</span>
+                    <span class="badge-level" data-i18n="skills.levelComfortable">Comfortable</span>
                   </div>
                 </div>
 
@@ -274,8 +273,8 @@
                     <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.621-1.554-1.288 0-.438.353-.742.922-.742.597 0 1.25.26 1.725.689l1.163-1.464c-.72-.733-1.782-1.066-2.91-1.066-1.859 0-3.092 1.095-3.092 2.76 0 1.583 1.026 2.385 2.665 3.033.771.309 1.487.65 1.487 1.353 0 .54-.486.852-1.17.852-.84 0-1.554-.42-2.124-1.059l-1.24 1.458c.883 1.082 2.052 1.553 3.396 1.553 2.046 0 3.256-1.059 3.256-2.788l-.001-.019zm-9.336.195c-.287.48-.72.84-1.268.84-.714 0-1.125-.48-1.125-1.512V11.85H7.95v6.084c0 2.052 1.134 3.012 2.82 3.012 1.233 0 2.19-.645 2.673-1.599l-.745-.876z"/></svg>
                   </div>
                   <div class="badge-info">
-                    <span class="badge-name">JavaScript</span>
-                    <span class="badge-level">Comfortable</span>
+                    <span class="badge-name">JavaScript ES6+</span>
+                    <span class="badge-level" data-i18n="skills.levelComfortable">Comfortable</span>
                   </div>
                 </div>
 
@@ -285,67 +284,17 @@
                   </div>
                   <div class="badge-info">
                     <span class="badge-name">React</span>
-                    <span class="badge-level">In progress</span>
+                    <span class="badge-level" data-i18n="skills.levelInProgress">In progress</span>
                   </div>
                 </div>
 
                 <div class="skill-badge">
-                  <div class="badge-icon-box react-color">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><circle cx="12" cy="12" r="2"/><g stroke="currentColor" stroke-width="1.2" fill="none"><ellipse cx="12" cy="12" rx="11" ry="4.2"/><ellipse cx="12" cy="12" rx="11" ry="4.2" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="11" ry="4.2" transform="rotate(120 12 12)"/></g></svg>
+                  <div class="badge-icon-box next-color">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="#FFFFFF"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.667 17.583L9.363 6.945h2.182l6.236 8.358a10.05 10.05 0 0 1-2.114 2.28zm-.782-5.719l-1.92-2.571V6.945h1.92v4.919zM7.273 17.055V6.945h1.92v10.11H7.273z"/></svg>
                   </div>
                   <div class="badge-info">
-                    <span class="badge-name">React Native</span>
-                    <span class="badge-level">Used on Kalanso</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Backend Card -->
-            <div class="skills-category-card">
-              <div class="category-header">
-                <span class="category-tag">@backend</span>
-                <span class="category-details">APIs & Services</span>
-              </div>
-              <div class="skills-grid">
-                <div class="skill-badge">
-                  <div class="badge-icon-box php-color">
-                    <span class="custom-badge-symbol">PHP</span>
-                  </div>
-                  <div class="badge-info">
-                    <span class="badge-name">PHP</span>
-                    <span class="badge-level">Comfortable</span>
-                  </div>
-                </div>
-
-
-
-                <div class="skill-badge">
-                  <div class="badge-icon-box node-color">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 1l10 5.8v11.4L12 24 2 18.2V6.8L12 1zm0 2.2L4 7.6v8.8l8 4.6 8-4.6V7.6l-8-4.4z"/></svg>
-                  </div>
-                  <div class="badge-info">
-                    <span class="badge-name">Node.js</span>
-                    <span class="badge-level">In progress</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Languages & Tools Card -->
-            <div class="skills-category-card">
-              <div class="category-header">
-                <span class="category-tag">@languages_tools</span>
-                <span class="category-details">Workflow</span>
-              </div>
-              <div class="skills-grid">
-                <div class="skill-badge">
-                  <div class="badge-icon-box git-color">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M23.3 10.9L13.1.7a1.8 1.8 0 0 0-2.5 0L8.2 3.1l3.2 3.2a2.1 2.1 0 0 1 2.7 2.7l3 3a2.1 2.1 0 1 1-1.3 1.3l-3-3a2.1 2.1 0 0 1-2.4-.4L7.1 13v6.7a2.1 2.1 0 1 1-1.8 0V11.2a2.1 2.1 0 0 1 1.1-1.8L3.2 6.2.7 8.7a1.8 1.8 0 0 0 0 2.5l10.2 10.2c.7.7 1.8.7 2.5 0l9.9-9.9c.7-.7.7-1.9 0-2.6z"/></svg>
-                  </div>
-                  <div class="badge-info">
-                    <span class="badge-name">Git & GitHub</span>
-                    <span class="badge-level">Version control</span>
+                    <span class="badge-name">Next.js</span>
+                    <span class="badge-level" data-i18n="skills.levelInProgress">In progress</span>
                   </div>
                 </div>
 
@@ -354,8 +303,143 @@
                     <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
                   </div>
                   <div class="badge-info">
-                    <span class="badge-name">Responsive Design</span>
-                    <span class="badge-level">Mobile First</span>
+                    <span class="badge-name">Responsive UI</span>
+                    <span class="badge-level" data-i18n="skills.levelMobileFirst">Mobile first</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Backend Card -->
+            <div class="skills-category-card">
+              <div class="category-header">
+                <span class="category-tag" data-i18n="skills.backendTag">@backend</span>
+                <span class="category-details" data-i18n="skills.backendDetails">Node.js · Express · REST APIs · PHP</span>
+              </div>
+              <div class="skills-grid">
+                <div class="skill-badge">
+                  <div class="badge-icon-box node-color">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 1l10 5.8v11.4L12 24 2 18.2V6.8L12 1zm0 2.2L4 7.6v8.8l8 4.6 8-4.6V7.6l-8-4.4z"/></svg>
+                  </div>
+                  <div class="badge-info">
+                    <span class="badge-name">Node.js / Express</span>
+                    <span class="badge-level" data-i18n="skills.levelInProgress">In progress</span>
+                  </div>
+                </div>
+
+                <div class="skill-badge">
+                  <div class="badge-icon-box php-color">
+                    <span class="custom-badge-symbol">PHP</span>
+                  </div>
+                  <div class="badge-info">
+                    <span class="badge-name">PHP</span>
+                    <span class="badge-level" data-i18n="skills.levelComfortable">Comfortable</span>
+                  </div>
+                </div>
+
+                <div class="skill-badge">
+                  <div class="badge-icon-box rest-color">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#38BDF8" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+                  </div>
+                  <div class="badge-info">
+                    <span class="badge-name">REST APIs</span>
+                    <span class="badge-level" data-i18n="skills.levelRestApis">REST & Services</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Data Card -->
+            <div class="skills-category-card">
+              <div class="category-header">
+                <span class="category-tag" data-i18n="skills.dataTag">@data</span>
+                <span class="category-details" data-i18n="skills.dataDetails">SQL · PostgreSQL · Supabase</span>
+              </div>
+              <div class="skills-grid">
+                <div class="skill-badge">
+                  <div class="badge-icon-box sql-color">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#FEA55F" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                  </div>
+                  <div class="badge-info">
+                    <span class="badge-name">SQL / MySQL</span>
+                    <span class="badge-level" data-i18n="skills.levelRelational">Relational DB</span>
+                  </div>
+                </div>
+
+                <div class="skill-badge">
+                  <div class="badge-icon-box pg-color">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="#336791"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
+                  </div>
+                  <div class="badge-info">
+                    <span class="badge-name">PostgreSQL / Supabase</span>
+                    <span class="badge-level" data-i18n="skills.levelInProgress">In progress</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mobile Card -->
+            <div class="skills-category-card">
+              <div class="category-header">
+                <span class="category-tag" data-i18n="skills.mobileTag">@mobile</span>
+                <span class="category-details" data-i18n="skills.mobileDetails">React Native · Mobile UX</span>
+              </div>
+              <div class="skills-grid">
+                <div class="skill-badge">
+                  <div class="badge-icon-box react-color">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><circle cx="12" cy="12" r="2"/><g stroke="currentColor" stroke-width="1.2" fill="none"><ellipse cx="12" cy="12" rx="11" ry="4.2"/><ellipse cx="12" cy="12" rx="11" ry="4.2" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="11" ry="4.2" transform="rotate(120 12 12)"/></g></svg>
+                  </div>
+                  <div class="badge-info">
+                    <span class="badge-name">React Native</span>
+                    <span class="badge-level" data-i18n="skills.levelUsedKalanso">Used on Kalanso</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tools & Workflow Card -->
+            <div class="skills-category-card">
+              <div class="category-header">
+                <span class="category-tag" data-i18n="skills.toolsTag">@tools_workflow</span>
+                <span class="category-details" data-i18n="skills.toolsDetails">Git · GitHub · Linux · Postman</span>
+              </div>
+              <div class="skills-grid">
+                <div class="skill-badge">
+                  <div class="badge-icon-box git-color">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M23.3 10.9L13.1.7a1.8 1.8 0 0 0-2.5 0L8.2 3.1l3.2 3.2a2.1 2.1 0 0 1 2.7 2.7l3 3a2.1 2.1 0 1 1-1.3 1.3l-3-3a2.1 2.1 0 0 1-2.4-.4L7.1 13v6.7a2.1 2.1 0 1 1-1.8 0V11.2a2.1 2.1 0 0 1 1.1-1.8L3.2 6.2.7 8.7a1.8 1.8 0 0 0 0 2.5l10.2 10.2c.7.7 1.8.7 2.5 0l9.9-9.9c.7-.7.7-1.9 0-2.6z"/></svg>
+                  </div>
+                  <div class="badge-info">
+                    <span class="badge-name">Git & GitHub</span>
+                    <span class="badge-level" data-i18n="skills.levelVersionControl">Version control</span>
+                  </div>
+                </div>
+
+                <div class="skill-badge">
+                  <div class="badge-icon-box postman-color">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><circle cx="12" cy="12" r="10" fill="#FF6C37"/><path d="M7 12l3 3 7-7" stroke="#FFF" stroke-width="2" fill="none"/></svg>
+                  </div>
+                  <div class="badge-info">
+                    <span class="badge-name">Postman & Linux</span>
+                    <span class="badge-level" data-i18n="skills.levelComfortable">Comfortable</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Deepening Card -->
+            <div class="skills-category-card">
+              <div class="category-header">
+                <span class="category-tag" data-i18n="skills.deepeningTag">@currently_deepening</span>
+                <span class="category-details" data-i18n="skills.deepeningDetails">TypeScript · Architecture · Testing</span>
+              </div>
+              <div class="skills-grid">
+                <div class="skill-badge">
+                  <div class="badge-icon-box ts-color">
+                    <span class="custom-badge-symbol">TS</span>
+                  </div>
+                  <div class="badge-info">
+                    <span class="badge-name">TypeScript & Tests</span>
+                    <span class="badge-level" data-i18n="skills.levelDeepening">Deepening actively</span>
                   </div>
                 </div>
               </div>
@@ -378,7 +462,7 @@
               <div class="tree-section open">
                 <div class="tree-header">
                   <span class="tree-arrow">▼</span>
-                  <span class="tree-title">projects</span>
+                  <span class="tree-title" data-i18n="projects.sidebarTitle">projects</span>
                 </div>
                 <div class="projects-nav-list">
                   <button class="project-nav-item active" onclick="scrollToProject('project-sushimebko')">
@@ -413,9 +497,9 @@
               </div>
 
               <div class="sidebar-contact-shortcut">
-                <p class="shortcut-text">// Interested in working together?</p>
+                <p class="shortcut-text" data-i18n="projects.sidebarContactPrompt">// Interested in working together?</p>
                 <button class="btn-ide btn-secondary full-width" onclick="switchTab('contact')">
-                  Let's talk
+                  <span data-i18n="projects.sidebarContactBtn">Let's talk</span>
                 </button>
               </div>
             </div>
@@ -425,7 +509,7 @@
           <div class="projects-main-pane">
             <div class="editor-tabs">
               <div class="editor-tab active">
-                <span class="file-name">projects-info</span>
+                <span class="file-name" data-i18n="projects.tabFileName">projects-info</span>
                 <span class="tab-close">✕</span>
               </div>
             </div>
@@ -434,7 +518,7 @@
 
               <!-- PROJET 1 : SUSHIMEBKO -->
               <article class="project-entry" id="project-sushimebko">
-                <h3 class="project-index-tag">Project 1 <span class="syntax-comment">// _Sushimebko</span></h3>
+                <h3 class="project-index-tag"><span data-i18n="projects.labelProject">Project</span> 1 <span class="syntax-comment">// _Sushimebko</span></h3>
                 
                 <div class="project-ide-card">
                   <div class="project-card-info">
@@ -443,16 +527,16 @@
                         <span>S</span>
                       </div>
                       <div class="project-title-meta">
-                        <h4 class="project-heading">SUSHIMEBKO</h4>
-                        <span class="project-subheading">RESTAURANT SHOWCASE WEBSITE</span>
+                        <h4 class="project-heading" data-i18n="projects.sushimebkoTitle">SUSHIMEBKO</h4>
+                        <span class="project-subheading" data-i18n="projects.sushimebkoSub">RESTAURANT SHOWCASE WEBSITE</span>
                       </div>
                     </div>
 
-                    <p class="project-desc">
+                    <p class="project-desc" data-i18n="projects.sushimebkoDesc">
                       A restaurant needed a web presence that matched the quality of its experience. I built a fully responsive showcase website focused on brand presentation, menu clarity and visual storytelling. The goal was to turn a real establishment into a clear, engaging digital experience.
                     </p>
 
-                    <p class="project-focus-tag"><strong>// What I learned:</strong> Structuring a frontend project from layout to detail · working with design intent · responsive CSS without a framework</p>
+                    <p class="project-focus-tag"><strong data-i18n="projects.labelWhatILearned">// What I learned:</strong> <span data-i18n="projects.sushimebkoLearned">Structuring a frontend project from layout to detail · working with design intent · responsive CSS without a framework</span></p>
 
                     <div class="project-tech-pills">
                       <span class="tech-pill">
@@ -483,7 +567,7 @@
 
                     <div class="project-card-actions">
                       <a href="https://sushitimebko.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-ide btn-primary">
-                        <span>view-project</span>
+                        <span data-i18n="projects.btnViewProject">view-project</span>
                         <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                       </a>
                     </div>
@@ -491,7 +575,7 @@
 
                   <div class="project-card-preview">
                     <div class="device-mockup-frame laptop">
-                      <img src="Sushitimebko.png" alt="Aperçu du projet Sushimebko" class="project-screenshot" loading="lazy">
+                      <img src="Sushitimebko.png" alt="Aperçu Sushimebko" class="project-screenshot" loading="lazy">
                     </div>
                   </div>
                 </div>
@@ -499,7 +583,7 @@
 
               <!-- PROJET 2 : BIOARCHI MALI -->
               <article class="project-entry" id="project-bioarchi">
-                <h3 class="project-index-tag">Project 2 <span class="syntax-comment">// _BioArchi-Mali</span></h3>
+                <h3 class="project-index-tag"><span data-i18n="projects.labelProject">Project</span> 2 <span class="syntax-comment">// _BioArchi-Mali</span></h3>
                 
                 <div class="project-ide-card">
                   <div class="project-card-info">
@@ -508,16 +592,16 @@
                         <span>B</span>
                       </div>
                       <div class="project-title-meta">
-                        <h4 class="project-heading">BIOARCHI MALI</h4>
-                        <span class="project-subheading">ARCHITECTURE STUDIO WEBSITE</span>
+                        <h4 class="project-heading" data-i18n="projects.bioarchiTitle">BIOARCHI MALI</h4>
+                        <span class="project-subheading" data-i18n="projects.bioarchiSub">ARCHITECTURE STUDIO WEBSITE</span>
                       </div>
                     </div>
 
-                    <p class="project-desc">
+                    <p class="project-desc" data-i18n="projects.bioarchiDesc">
                       An architecture studio had no digital presence. I built a visual-first website that structures their portfolio of projects, communicates the studio's positioning and creates a coherent identity online. The challenge was making the design feel as considered as the architecture itself.
                     </p>
 
-                    <p class="project-focus-tag"><strong>// What I learned:</strong> Visual hierarchy · building around content that isn't mine · layout systems for portfolio-style sites</p>
+                    <p class="project-focus-tag"><strong data-i18n="projects.labelWhatILearned">// What I learned:</strong> <span data-i18n="projects.bioarchiLearned">Visual hierarchy · building around architectural content · layout systems for portfolio showcase</span></p>
 
                     <div class="project-tech-pills">
                       <span class="tech-pill">
@@ -526,7 +610,7 @@
                       </span>
                       <span class="tech-pill">
                         <svg viewBox="0 0 24 24" width="14" height="14" fill="#1572B6"><path d="M1.5 0h21l-1.9 21.2-8.6 2.8-8.6-2.8L1.5 0zm16.4 6.4H6.1l.3 3.6h10.9l-.4 4.5-4.4 1.3-4.4-1.3-.3-2.6H5.4l.5 4.8 6.6 2 6.6-2 1.3-12.3z"/></svg>
-                        css
+                        Css
                       </span>
                       <span class="tech-pill">
                         <svg viewBox="0 0 24 24" width="14" height="14" fill="#F7DF1E"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.621-1.554-1.288 0-.438.353-.742.922-.742.597 0 1.25.26 1.725.689l1.163-1.464c-.72-.733-1.782-1.066-2.91-1.066-1.859 0-3.092 1.095-3.092 2.76 0 1.583 1.026 2.385 2.665 3.033.771.309 1.487.65 1.487 1.353 0 .54-.486.852-1.17.852-.84 0-1.554-.42-2.124-1.059l-1.24 1.458c.883 1.082 2.052 1.553 3.396 1.553 2.046 0 3.256-1.059 3.256-2.788l-.001-.019zm-9.336.195c-.287.48-.72.84-1.268.84-.714 0-1.125-.48-1.125-1.512V11.85H7.95v6.084c0 2.052 1.134 3.012 2.82 3.012 1.233 0 2.19-.645 2.673-1.599l-.745-.876z"/></svg>
@@ -548,7 +632,7 @@
 
                     <div class="project-card-actions">
                       <a href="https://bioarchi-mali.com" target="_blank" rel="noopener noreferrer" class="btn-ide btn-primary">
-                        <span>view-project</span>
+                        <span data-i18n="projects.btnViewProject">view-project</span>
                         <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                       </a>
                     </div>
@@ -556,7 +640,7 @@
 
                   <div class="project-card-preview">
                     <div class="device-mockup-frame laptop">
-                      <img src="bioarchi.png" alt="Aperçu du projet BioArchi Mali" class="project-screenshot" loading="lazy">
+                      <img src="bioarchi.png" alt="Aperçu BioArchi Mali" class="project-screenshot" loading="lazy">
                     </div>
                   </div>
                 </div>
@@ -564,7 +648,7 @@
 
               <!-- PROJET 3 : COUVERTURE VASSEUR -->
               <article class="project-entry" id="project-couverture-vasseur">
-                <h3 class="project-index-tag">Project 3 <span class="syntax-comment">// _Couverture-Vasseur</span></h3>
+                <h3 class="project-index-tag"><span data-i18n="projects.labelProject">Project</span> 3 <span class="syntax-comment">// _Couverture-Vasseur</span></h3>
                 
                 <div class="project-ide-card">
                   <div class="project-card-info">
@@ -573,16 +657,16 @@
                         <span>C</span>
                       </div>
                       <div class="project-title-meta">
-                        <h4 class="project-heading">COUVERTURE VASSEUR</h4>
-                        <span class="project-subheading">LOCAL BUSINESS WEBSITE</span>
+                        <h4 class="project-heading" data-i18n="projects.couvertureTitle">COUVERTURE VASSEUR</h4>
+                        <span class="project-subheading" data-i18n="projects.couvertureSub">LOCAL BUSINESS WEBSITE</span>
                       </div>
                     </div>
 
-                    <p class="project-desc">
+                    <p class="project-desc" data-i18n="projects.couvertureDesc">
                       A roofing company needed a website that turned visitors into quote requests. I built a conversion-focused site with a clear customer journey: service discovery, trust-building content, a detailed FAQ, local service areas and a contact flow. I used Next.js for this project, which required me to learn its routing and rendering model while delivering a production-quality result.
                     </p>
 
-                    <p class="project-focus-tag"><strong>// What I learned:</strong> Next.js routing and structure · UX applied to a real business objective · working with Tailwind CSS</p>
+                    <p class="project-focus-tag"><strong data-i18n="projects.labelWhatILearned">// What I learned:</strong> <span data-i18n="projects.couvertureLearned">Next.js routing and structure · UX applied to a real business objective · working with Tailwind CSS</span></p>
 
                     <div class="project-tech-pills">
                       <span class="tech-pill">
@@ -603,7 +687,7 @@
                       </span>
                       <span class="tech-pill">
                         <svg viewBox="0 0 24 24" width="14" height="14" fill="#1572B6"><path d="M1.5 0h21l-1.9 21.2-8.6 2.8-8.6-2.8L1.5 0zm16.4 6.4H6.1l.3 3.6h10.9l-.4 4.5-4.4 1.3-4.4-1.3-.3-2.6H5.4l.5 4.8 6.6 2 6.6-2 1.3-12.3z"/></svg>
-                        css
+                        Css
                       </span>
                       <span class="tech-pill">
                         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
@@ -617,7 +701,7 @@
 
                     <div class="project-card-actions">
                       <a href="https://couvreur-vasseur-xi.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-ide btn-primary">
-                        <span>view-project</span>
+                        <span data-i18n="projects.btnViewProject">view-project</span>
                         <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                       </a>
                     </div>
@@ -625,7 +709,7 @@
 
                   <div class="project-card-preview">
                     <div class="device-mockup-frame laptop">
-                      <img src="couvreur-vasseur.png" alt="Aperçu du projet Couverture Vasseur" class="project-screenshot" loading="lazy">
+                      <img src="couvreur-vasseur.png" alt="Aperçu Couverture Vasseur" class="project-screenshot" loading="lazy">
                     </div>
                   </div>
                 </div>
@@ -633,7 +717,7 @@
 
               <!-- PROJET 4 : KALANSO -->
               <article class="project-entry" id="project-kalanso">
-                <h3 class="project-index-tag">Project 4 <span class="syntax-comment">// _Kalanso</span></h3>
+                <h3 class="project-index-tag"><span data-i18n="projects.labelProject">Project</span> 4 <span class="syntax-comment">// _Kalanso</span></h3>
                 
                 <div class="project-ide-card">
                   <div class="project-card-info">
@@ -642,16 +726,16 @@
                         <span>K</span>
                       </div>
                       <div class="project-title-meta">
-                        <h4 class="project-heading">KALANSO</h4>
-                        <span class="project-subheading">MOBILE EDUCATION APP</span>
+                        <h4 class="project-heading" data-i18n="projects.kalansoTitle">KALANSO</h4>
+                        <span class="project-subheading" data-i18n="projects.kalansoSub">MOBILE EDUCATION APP</span>
                       </div>
                     </div>
 
-                    <p class="project-desc">
+                    <p class="project-desc" data-i18n="projects.kalansoDesc">
                       A mobile application built with React Native to help students prepare for the Baccalauréat exam. I contributed to the UI design, worked on the user experience flows and integrated backend features using PHP, including in-app purchase integration.
                     </p>
 
-                    <p class="project-focus-tag"><strong>// What I learned:</strong> React Native components and navigation · mobile UX patterns · integrating payment features · working on a product that went live on the Play Store</p>
+                    <p class="project-focus-tag"><strong data-i18n="projects.labelWhatILearned">// What I learned:</strong> <span data-i18n="projects.kalansoLearned">React Native components and navigation · mobile UX patterns · integrating payment features · working on a product that went live on the Play Store</span></p>
 
                     <div class="project-tech-pills">
                       <span class="tech-pill">
@@ -662,7 +746,6 @@
                         <svg viewBox="0 0 24 24" width="14" height="14" fill="#777BB4"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-5.7 12.8l.9-4.8h1.8c.8 0 1.4.2 1.7.5.3.3.4.8.3 1.4-.1.7-.5 1.3-1 1.7-.5.4-1.2.6-2 .6h-.8l-.5 2.6H6.3zm1.8-4l-.4 2.2h.7c.4 0 .7-.1.9-.3.2-.2.3-.5.4-.9 0-.4 0-.6-.2-.8-.2-.2-.5-.2-.9-.2h-.5zm5.5 4l.9-4.8h1.2l-.3 1.8h.1c.3-.6.6-1.1 1.1-1.5.5-.4 1.1-.5 1.7-.5.7 0 1.2.2 1.5.6.3.4.4.9.3 1.6l-.5 2.8h-1.2l.5-2.6c.1-.4 0-.7-.1-.9-.1-.2-.4-.3-.7-.3-.4 0-.8.2-1.1.5-.3.3-.5.8-.6 1.4l-.4 1.9h-1.2zm6.7 0l.9-4.8h1.8c.8 0 1.4.2 1.7.5.3.3.4.8.3 1.4-.1.7-.5 1.3-1 1.7-.5.4-1.2.6-2 .6h-.8l-.5 2.6h-1.4zm1.8-4l-.4 2.2h.7c.4 0 .7-.1.9-.3.2-.2.3-.5.4-.9 0-.4 0-.6-.2-.8-.2-.2-.5-.2-.9-.2h-.5z"/></svg>
                         PHP
                       </span>
-
                       <span class="tech-pill">
                         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#A78BFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
                         Mobile UX
@@ -671,7 +754,7 @@
 
                     <div class="project-card-actions">
                       <a href="https://play.google.com/store/apps/details?id=com.paken.Ok&pli=1" target="_blank" rel="noopener noreferrer" class="btn-ide btn-primary">
-                        <span>view-project</span>
+                        <span data-i18n="projects.btnViewProject">view-project</span>
                         <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                       </a>
                     </div>
@@ -679,7 +762,7 @@
 
                   <div class="project-card-preview">
                     <div class="device-mockup-frame">
-                      <img src="Projet4.jpg" alt="Aperçu du projet Kalanso" class="project-screenshot" loading="lazy">
+                      <img src="Projet4.jpg" alt="Aperçu Kalanso" class="project-screenshot" loading="lazy">
                     </div>
                   </div>
                 </div>
@@ -687,7 +770,7 @@
 
               <!-- PROJET 5 : PREPABAC-QUIZZ -->
               <article class="project-entry" id="project-prepabac">
-                <h3 class="project-index-tag">Project 5 <span class="syntax-comment">// _PrepaBac-Quizz</span></h3>
+                <h3 class="project-index-tag"><span data-i18n="projects.labelProject">Project</span> 5 <span class="syntax-comment">// _PrepaBac-Quizz</span></h3>
                 
                 <div class="project-ide-card">
                   <div class="project-card-info">
@@ -696,16 +779,16 @@
                         <span>Q</span>
                       </div>
                       <div class="project-title-meta">
-                        <h4 class="project-heading">PREPABAC-QUIZZ</h4>
-                        <span class="project-subheading">INTERACTIVE QUIZ PLATFORM</span>
+                        <h4 class="project-heading" data-i18n="projects.prepabacTitle">PREPABAC-QUIZZ</h4>
+                        <span class="project-subheading" data-i18n="projects.prepabacSub">INTERACTIVE QUIZ PLATFORM</span>
                       </div>
                     </div>
 
-                    <p class="project-desc">
+                    <p class="project-desc" data-i18n="projects.prepabacDesc">
                       Students preparing for the Bac had no simple way to test themselves online. I built an interactive quiz platform that generates question sets by subject, calculates scores in real time, shows a pass percentage and displays step-by-step explanations. All logic was written in vanilla JavaScript without any framework.
                     </p>
 
-                    <p class="project-focus-tag"><strong>// What I learned:</strong> Managing complex state in vanilla JS · building real interactive logic · writing reusable components without a framework</p>
+                    <p class="project-focus-tag"><strong data-i18n="projects.labelWhatILearned">// What I learned:</strong> <span data-i18n="projects.prepabacLearned">Managing complex state in vanilla JS · building real interactive logic · writing reusable components without a framework</span></p>
 
                     <div class="project-tech-pills">
                       <span class="tech-pill">
@@ -728,11 +811,11 @@
 
                     <div class="project-card-actions">
                       <a href="https://github.com/Whereisdev/PrepaBac-Quizz" target="_blank" rel="noopener noreferrer" class="btn-ide btn-primary">
-                        <span>view-project</span>
+                        <span data-i18n="projects.btnViewProject">view-project</span>
                         <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                       </a>
                       <a href="https://github.com/Whereisdev/PrepaBac-Quizz" target="_blank" rel="noopener noreferrer" class="btn-ide btn-secondary">
-                        <span>view-code</span>
+                        <span data-i18n="projects.btnViewCode">view-code</span>
                       </a>
                     </div>
                   </div>
@@ -747,7 +830,7 @@
 
               <!-- PROJET 6 : LIRE POUR EXISTER -->
               <article class="project-entry" id="project-lire">
-                <h3 class="project-index-tag">Project 6 <span class="syntax-comment">// _Lire-pour-exister</span></h3>
+                <h3 class="project-index-tag"><span data-i18n="projects.labelProject">Project</span> 6 <span class="syntax-comment">// _Lire-pour-exister</span></h3>
                 
                 <div class="project-ide-card">
                   <div class="project-card-info">
@@ -756,16 +839,16 @@
                         <span>L</span>
                       </div>
                       <div class="project-title-meta">
-                        <h4 class="project-heading">LIRE POUR EXISTER</h4>
-                        <span class="project-subheading">LITERARY ASSOCIATION WEBSITE</span>
+                        <h4 class="project-heading" data-i18n="projects.lireTitle">LIRE POUR EXISTER</h4>
+                        <span class="project-subheading" data-i18n="projects.lireSub">LITERARY ASSOCIATION WEBSITE</span>
                       </div>
                     </div>
 
-                    <p class="project-desc">
+                    <p class="project-desc" data-i18n="projects.lireDesc">
                       A literary association needed a clean, culturally appropriate web presence. I built a polished showcase site with careful attention to typography, readability and subtle CSS animations. The goal was to let the writing and mission speak, without the design getting in the way.
                     </p>
 
-                    <p class="project-focus-tag"><strong>// What I learned:</strong> Typography as design · CSS animations · designing for content that has meaning</p>
+                    <p class="project-focus-tag"><strong data-i18n="projects.labelWhatILearned">// What I learned:</strong> <span data-i18n="projects.lireLearned">Typography as design · CSS animations · designing for content that has meaning</span></p>
 
                     <div class="project-tech-pills">
                       <span class="tech-pill">
@@ -788,11 +871,11 @@
 
                     <div class="project-card-actions">
                       <a href="https://github.com/Whereisdev/Landing-page-Lire-pour-exister-" target="_blank" rel="noopener noreferrer" class="btn-ide btn-primary">
-                        <span>view-project</span>
+                        <span data-i18n="projects.btnViewProject">view-project</span>
                         <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                       </a>
                       <a href="https://github.com/Whereisdev/Landing-page-Lire-pour-exister-" target="_blank" rel="noopener noreferrer" class="btn-ide btn-secondary">
-                        <span>view-code</span>
+                        <span data-i18n="projects.btnViewCode">view-code</span>
                       </a>
                     </div>
                   </div>
@@ -807,7 +890,7 @@
 
               <!-- PROJET 7 : PORTFOLIO -->
               <article class="project-entry" id="project-portfolio">
-                <h3 class="project-index-tag">Project 7 <span class="syntax-comment">// _Portfolio</span></h3>
+                <h3 class="project-index-tag"><span data-i18n="projects.labelProject">Project</span> 7 <span class="syntax-comment">// _Portfolio</span></h3>
                 
                 <div class="project-ide-card">
                   <div class="project-card-info">
@@ -816,16 +899,16 @@
                         <span>P</span>
                       </div>
                       <div class="project-title-meta">
-                        <h4 class="project-heading">PORTFOLIO</h4>
-                        <span class="project-subheading">PERSONAL PORTFOLIO</span>
+                        <h4 class="project-heading" data-i18n="projects.portfolioTitle">PORTFOLIO</h4>
+                        <span class="project-subheading" data-i18n="projects.portfolioSub">PERSONAL PORTFOLIO</span>
                       </div>
                     </div>
 
-                    <p class="project-desc">
+                    <p class="project-desc" data-i18n="projects.portfolioDesc">
                       This portfolio. Built with HTML, CSS and vanilla JavaScript, designed to look like a VS Code interface. I built it to showcase my work and practice frontend architecture without any framework. Every section, animation and interaction was written from scratch.
                     </p>
 
-                    <p class="project-focus-tag"><strong>// What I learned:</strong> Tab navigation with hash routing · IDE-style CSS architecture · building something that represents me as a developer</p>
+                    <p class="project-focus-tag"><strong data-i18n="projects.labelWhatILearned">// What I learned:</strong> <span data-i18n="projects.portfolioLearned">Tab navigation with hash routing · IDE-style CSS architecture · lightweight bilingual i18n system</span></p>
 
                     <div class="project-tech-pills">
                       <span class="tech-pill">
@@ -848,11 +931,11 @@
 
                     <div class="project-card-actions">
                       <a href="https://github.com/Whereisdev" target="_blank" rel="noopener noreferrer" class="btn-ide btn-primary">
-                        <span>view-project</span>
+                        <span data-i18n="projects.btnViewProject">view-project</span>
                         <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                       </a>
                       <a href="https://github.com/Whereisdev/Portfolio-" target="_blank" rel="noopener noreferrer" class="btn-ide btn-secondary">
-                        <span>view-code</span>
+                        <span data-i18n="projects.btnViewCode">view-code</span>
                       </a>
                     </div>
                   </div>
@@ -883,7 +966,7 @@
               <div class="tree-section open">
                 <div class="tree-header">
                   <span class="tree-arrow">▼</span>
-                  <span class="tree-title">contacts</span>
+                  <span class="tree-title" data-i18n="contact.sidebarTitle">contacts</span>
                 </div>
                 <div class="tree-list">
                   <a href="mailto:ibore21@gmail.com" class="tree-contact-link">
@@ -894,7 +977,7 @@
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
                     <span>Whereisdev</span>
                   </a>
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="tree-contact-link">
+                  <a href="https://www.linkedin.com/in/ibrahim-bore-3867b8328" target="_blank" rel="noopener noreferrer" class="tree-contact-link">
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                     <span>Ibrahim Boré</span>
                   </a>
@@ -903,7 +986,7 @@
 
               <div class="sidebar-avatar-card">
                 <img src="avatar-contact.png" alt="Avatar contact" class="sidebar-avatar-img">
-                <p class="sidebar-avatar-caption">// Let's build something.</p>
+                <p class="sidebar-avatar-caption" data-i18n="contact.sidebarAvatarCaption">// Let's build something.</p>
               </div>
             </div>
           </aside>
@@ -912,37 +995,37 @@
           <div class="contact-form-pane">
             <div class="editor-tabs">
               <div class="editor-tab active">
-                <span class="file-name">contact-form.js</span>
+                <span class="file-name" data-i18n="contact.tabFileName">contact-form.js</span>
                 <span class="tab-close">✕</span>
               </div>
             </div>
 
             <div class="form-wrapper-inner">
-              <p class="form-intro-comment">// If you're building something and need a junior developer who is serious about the work — I'd be glad to talk.</p>
+              <p class="form-intro-comment" data-i18n="contact.formIntro">// If you're building something and need a junior developer who is serious about the work — I'd be glad to talk.</p>
               
               <form class="ide-form" id="contactForm" novalidate>
                 
                 <div class="form-group">
-                  <label for="inputName" class="form-label">_name:</label>
-                  <input type="text" id="inputName" name="name" class="form-input" placeholder="Your name" required minlength="2" maxlength="40">
+                  <label for="inputName" class="form-label" data-i18n="contact.labelName">_name:</label>
+                  <input type="text" id="inputName" name="name" class="form-input" placeholder="Your name" data-i18n-placeholder="contact.placeholderName" required minlength="2" maxlength="40">
                   <span class="form-error" id="error-name"></span>
                 </div>
 
                 <div class="form-group">
-                  <label for="inputEmail" class="form-label">_email:</label>
-                  <input type="email" id="inputEmail" name="email" class="form-input" placeholder="your.email@example.com" required>
+                  <label for="inputEmail" class="form-label" data-i18n="contact.labelEmail">_email:</label>
+                  <input type="email" id="inputEmail" name="email" class="form-input" placeholder="your.email@example.com" data-i18n-placeholder="contact.placeholderEmail" required>
                   <span class="form-error" id="error-email"></span>
                 </div>
 
                 <div class="form-group">
-                  <label for="inputMessage" class="form-label">_message:</label>
-                  <textarea id="inputMessage" name="message" class="form-input form-textarea" rows="6" placeholder="Tell me about what you're building and what you're looking for..." required minlength="5"></textarea>
+                  <label for="inputMessage" class="form-label" data-i18n="contact.labelMessage">_message:</label>
+                  <textarea id="inputMessage" name="message" class="form-input form-textarea" rows="6" placeholder="Tell me about what you're building and what you're looking for..." data-i18n-placeholder="contact.placeholderMessage" required minlength="5"></textarea>
                   <span class="form-error" id="error-message"></span>
                 </div>
 
                 <div class="form-submit-row">
                   <button type="submit" class="btn-ide btn-primary" id="btnSubmitMessage">
-                    <span>send-message</span>
+                    <span data-i18n="contact.btnSend">send-message</span>
                   </button>
                   <span class="form-status" id="formStatus"></span>
                 </div>
@@ -955,7 +1038,7 @@
           <div class="contact-code-pane">
             <div class="editor-tabs">
               <div class="editor-tab">
-                <span class="file-name">preview.js</span>
+                <span class="file-name" data-i18n="contact.previewFileName">preview.js</span>
               </div>
             </div>
 
@@ -968,7 +1051,7 @@
   <span class="syntax-property">name</span>: <span class="syntax-string" id="codeValName">""</span>,
   <span class="syntax-property">email</span>: <span class="syntax-string" id="codeValEmail">""</span>,
   <span class="syntax-property">message</span>: <span class="syntax-string" id="codeValMessage">""</span>,
-  <span class="syntax-property">date</span>: <span class="syntax-string" id="codeValDate">"Aujourd'hui"</span>
+  <span class="syntax-property">date</span>: <span class="syntax-string" id="codeValDate">"Today"</span>
 };
 
 <span class="syntax-variable">button</span>.<span class="syntax-function">addEventListener</span>(<span class="syntax-string">'click'</span>, () =&gt; {
@@ -985,7 +1068,7 @@
     <!-- Barre inférieure Status Bar (Footer) -->
     <footer class="ide-footer">
       <div class="footer-left">
-        <span class="footer-label">find me in:</span>
+        <span class="footer-label" data-i18n="footer.findMeIn">find me in:</span>
         <a href="https://github.com/Whereisdev" target="_blank" rel="noopener noreferrer" class="footer-social-icon" title="GitHub">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
         </a>
@@ -1007,6 +1090,7 @@
 
   </div>
 
+  <script src="translations.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

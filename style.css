@@ -170,6 +170,55 @@ html, body {
   align-items: stretch;
 }
 
+/* ==========================================================================
+   LANGUAGE SWITCHER (IDE Style)
+   ========================================================================== */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 0 16px;
+  border-left: 1px solid var(--border-color);
+  font-family: var(--font-code);
+  font-size: 0.85rem;
+  user-select: none;
+}
+
+.lang-divider {
+  color: rgba(96, 123, 150, 0.4);
+  font-size: 0.8rem;
+}
+
+.lang-btn {
+  background: none;
+  border: 1px solid transparent;
+  color: var(--text-muted);
+  font-family: var(--font-code);
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lang-btn:hover {
+  color: var(--text-white);
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.lang-btn:focus-visible {
+  outline: 1px solid var(--accent-orange);
+  outline-offset: 2px;
+}
+
+.lang-btn.active {
+  color: var(--accent-orange);
+  font-weight: 700;
+  background-color: rgba(254, 165, 95, 0.1);
+  border-color: rgba(254, 165, 95, 0.3);
+}
+
 .contact-tab-btn {
   border-left: 1px solid var(--border-color);
   border-right: none;
@@ -648,7 +697,8 @@ html, body {
   user-select: none;
 }
 
-.editor-tab {
+.editor-tab,
+.editor-tab-item {
   border-right: 1px solid var(--border-color);
   padding: 0 20px;
   display: flex;
@@ -658,9 +708,18 @@ html, body {
   font-size: 0.86rem;
   color: var(--text-muted);
   background-color: rgba(255, 255, 255, 0.02);
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
-.editor-tab.active {
+.editor-tab:hover,
+.editor-tab-item:hover {
+  color: var(--text-white);
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.editor-tab.active,
+.editor-tab-item.active {
   color: var(--text-white);
   background-color: var(--bg-editor);
   border-top: 1px solid var(--accent-orange);
@@ -813,11 +872,17 @@ html, body {
 .css-color { background-color: rgba(38, 77, 228, 0.15); color: #264de4; }
 .js-color { background-color: rgba(247, 223, 30, 0.15); color: #f7df1e; }
 .react-color { background-color: rgba(97, 218, 251, 0.15); color: #61dafb; }
+.next-color { background-color: rgba(255, 255, 255, 0.12); color: #ffffff; }
 .php-color { background-color: rgba(119, 123, 179, 0.15); color: #8892be; }
 .orange-color { background-color: rgba(255, 121, 0, 0.15); color: #ff7900; }
 .node-color { background-color: rgba(104, 160, 99, 0.15); color: #68a063; }
 .git-color { background-color: rgba(240, 80, 50, 0.15); color: #f05032; }
 .ui-color { background-color: rgba(155, 81, 224, 0.15); color: #9b51e0; }
+.sql-color { background-color: rgba(254, 165, 95, 0.15); color: #FEA55F; }
+.pg-color { background-color: rgba(51, 103, 145, 0.2); color: #336791; }
+.rest-color { background-color: rgba(56, 189, 248, 0.15); color: #38BDF8; }
+.ts-color { background-color: rgba(49, 120, 198, 0.2); color: #3178C6; }
+.postman-color { background-color: rgba(255, 108, 55, 0.15); color: #FF6C37; }
 
 .custom-badge-symbol {
   font-family: var(--font-code);
@@ -1378,10 +1443,12 @@ html, body {
   }
   
   .header-brand {
-    width: 100%;
+    flex: 1;
+    width: auto;
     border-right: none;
+    padding: 0 16px;
   }
-  
+
   .nav-tabs {
     display: none;
     position: absolute;
@@ -1404,9 +1471,20 @@ html, body {
     border-right: none;
     border-bottom: 1px solid var(--border-color);
   }
-  
+
   .header-right {
+    display: flex;
+    align-items: center;
+  }
+
+  .header-right .contact-tab-btn {
     display: none;
+  }
+
+  .lang-switcher {
+    padding: 0 12px;
+    height: 100%;
+    border-left: 1px solid var(--border-color);
   }
   
   .hero-name {
